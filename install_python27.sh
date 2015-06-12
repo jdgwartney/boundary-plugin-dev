@@ -13,18 +13,20 @@ sudo yum groupinstall -y development
 
 sudo yum install -y zlib-dev openssl-devel sqlite-devel bzip2-devel wget xz-libs
 
-wget http://www.python.org/ftp/python/2.7.6/Python-2.7.6.tar.xz
+PYTHON_VERSION=2.7.9
+
+wget http://www.python.org/ftp/python/$PYTHON_VERSION/Python-$PYTHON_VERSION.tar.xz
 
 
 # Let's decode (-d) the XZ encoded tar archive:
-xz -d Python-2.7.6.tar.xz
+xz -d Python-$PYTHON_VERSION.tar.xz
 
 
 # Now we can perform the extraction:
-tar -xvf Python-2.7.6.tar
+tar -xvf Python-$PYTHON_VERSION.tar
 
 # Enter the file directory:
-pushd Python-2.7.6
+pushd Python-$PYTHON_VERSION
 
 # Start the configuration (setting the installation directory)
 # By default files are installed in /usr/local.
