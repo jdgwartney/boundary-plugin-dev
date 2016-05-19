@@ -19,9 +19,9 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     v.vm.hostname = "centos-5.8"
   end
 
-  config.vm.define "centos-5.10" do |v|
-    v.vm.box = "chef/centos-5.10"
-    v.vm.hostname = "centos-5.10"
+  config.vm.define "centos-5.11" do |v|
+    v.vm.box = "puppetlabs/centos-5.11-64-puppet"
+    v.vm.hostname = "centos-5.11"
   end
 
   config.vm.define "centos-6.6" do |v|
@@ -35,8 +35,13 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   end
 
   config.vm.define "centos-7.1", autostart: false do |v|
-    v.vm.box = "chef/centos-7.1"
-    v.vm.hostname = "plugin-dev-centos-7.1"
+    v.vm.box = "puppetlabs/centos-7.1-64-puppet"
+    v.vm.hostname = "centos-7.1"
+  end
+
+  config.vm.define "centos-7.2", autostart: false do |v|
+    v.vm.box = "puppetlabs/centos-7.2-64-puppet"
+    v.vm.hostname = "centos-7.2"
   end
 
   #
@@ -112,7 +117,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
      shell.inline = "puppet module install puppetlabs-apt;
                      puppet module install puppetlabs-stdlib;
                      puppet module install boundary-boundary;
-                     touch /etc/puppet/hiera.yaml;
+                     # touch /etc/puppet/hiera.yaml;
                      exit 0"
   end
 
